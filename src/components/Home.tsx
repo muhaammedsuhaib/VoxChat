@@ -1,18 +1,25 @@
 import React, { useState } from 'react'
 import Navbar from './Navbar'
+import Sidebar from './Sidebar'
+import Userbox from './Userbox'
+import Chatbox from './Chatbox'
 
 const Home = () => {
     const [mode,setMode]=useState(true)
   return (<>
   
         <Navbar/>
-    <div className='w-full h-[100vh]'>
-    <div  className="grid grid-cols-12 ">
+        <Sidebar/>
+        <div className="ml-16 mt-14 grid grid-cols-2 h-[calc(100vh-3.5rem)]">
+                <Userbox />
+                <Chatbox />
+            </div>
+    {/* <div className=''> */}
+    {/* <div  className="grid grid-cols-12 "> */}
 
         {/* sidebar  */}
-  <div  className="col-span-1 p-4 w-full mt-14 bg-black">
+  {/* <div  className="col-span-1 p-4 w-full h-[100vh] mt-14 bg-black">
 
-    {/* <div className="w-50 bg-red-900">s</div> */}
 
     
 
@@ -23,13 +30,12 @@ const Home = () => {
 
 
 
-  </div>
+  </div> */}
  
 
   {/* chat user Box  */}
-  <div  className="col-span-1 p-4 w-full mt-14 bg-black">
+  {/* <div  className="col-span-5 p-4 w-full h-[100vh] mt-14 bg-red-800">
 
-{/* <div className="w-50 bg-red-900">s</div> */}
 
 
 
@@ -40,16 +46,37 @@ const Home = () => {
 
 
 
-</div>
+</div> */}
 
 
 
 {/* chatbox  */}
-  <div  className="col-span-7 p-4 w-full h-[100vh] bg-green-800">Column 2</div>
-</div>
+  {/* <div  className="col-span-5 p-2 w-full h-[100vh] mt-14 bg-blue-800">Column 2</div>
 
 
-    {/* <div>
+  <div  className="col-span-1 p-1 w-full h-[100vh] mt-14 bg-green-800">Column 2</div> */}
+{/* </div> */}
+
+
+   
+
+    {/* </div> */}
+    </>
+  )
+}
+
+export default Home
+
+
+
+
+
+
+
+
+
+
+ {/* <div>
       <section className={`container mx-auto text-center ${mode?"bg-white text-black":"bg-black text-white"} `}>
       
         
@@ -86,10 +113,3 @@ const Home = () => {
            </div>
  
     </div> */}
-
-    </div>
-    </>
-  )
-}
-
-export default Home
