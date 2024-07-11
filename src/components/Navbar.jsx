@@ -1,12 +1,12 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-]
+// const navigation = [
+//   { name: 'Dashboard', href: '#', current: true },
+//   { name: 'Team', href: '#', current: false },
+//   { name: 'Projects', href: '#', current: false },
+//   { name: 'Calendar', href: '#', current: false },
+// ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -30,13 +30,13 @@ export default function Navbar() {
             <div className="flex flex-shrink-0 items-center">
               <img
                 alt="Your Company"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                src="yellowbr.png"
                 className="h-8 w-auto"
               />
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                {navigation.map((item) => (
+                {/* {navigation.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
@@ -48,7 +48,7 @@ export default function Navbar() {
                   >
                     {item.name}
                   </a>
-                ))}
+                ))} */}
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default function Navbar() {
 
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pb-3 pt-2">
-          {navigation.map((item) => (
+          {/* {navigation.map((item) => (
             <DisclosureButton
               key={item.name}
               as="a"
@@ -115,7 +115,7 @@ export default function Navbar() {
             >
               {item.name}
             </DisclosureButton>
-          ))}
+          ))} */}
         </div>
       </DisclosurePanel>
     </Disclosure>
