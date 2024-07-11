@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 const Userbox = () => {
   const initialData = [
-    { name: 'binu' },
+    { name: 'Anas' },
     { name: 'suhaib' },
-    { name: 'raman' },
+    { name: 'Nisamuuu' },
     { name: 'ravi' },
     { name: 'haro' },
     { name: 'ravi' },
