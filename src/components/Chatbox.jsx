@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Chatbox = () => {
+  const [darkMode, setDarkMode]=useState(true);
+  const [chageC,setChangeC]=useState(true)
   return (
     <>
  {/* <div className="w-full h-full flex items-center justify-center ">
       <img src="/blackbr.png" alt="logo"  width={400}/>
     </div> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div className="w-full bg-slate-600 p-0 flex flex-col">
 

@@ -5,15 +5,35 @@ import Userbox from './Userbox'
 import Chatbox from './Chatbox'
 
 const Home = () => {
-    const [mode,setMode]=useState(true)
+    const [darkMode, setDarkMode]=useState(true);
+  const [responsive,setResponsive]=useState(false)
+  const [chageC,setChangeC]=useState(true)
   return (<>
+
+  <div>
+  <div className={`w-full h-[100vh] flex flex-wrap `}>
+      <div className={`hidden md:flex justify-center w-full md:w-1/2 `}>
+      
+ <Userbox/>
+</div>
+
+        <div className={`w-full md:w-1/2 `}>
+
+
+
+          <div className="w-full h-screen flex items-center justify-center text-start">
+           <Chatbox/>
+          </div>
+        </div>
+      </div>
+  </div>
   
-        <Navbar/>
-        <Sidebar/>
-        <div className="ml-16 mt-14 grid grid-cols-2 h-[calc(100vh-3.5rem)]">
-                <Userbox />
-                <Chatbox />
-            </div>
+        {/* <Navbar/>
+        <Sidebar/> */}
+        {/* <div className="ml-16 mt-14 grid grid-cols-2 h-[calc(100vh-3.5rem)]"> */}
+                {/* <Userbox />
+                <Chatbox /> */}
+            {/* </div> */}
     {/* <div className=''> */}
     {/* <div  className="grid grid-cols-12 "> */}
 
