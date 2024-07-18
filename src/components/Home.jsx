@@ -11,7 +11,7 @@ const Home = () => {
   return (<>
 
   <div>
-    {/* <Navbar/> */}
+    <Navbar/>
   <div className={`w-full h-[100vh] flex flex-wrap `}>
       <div className={` justify-center w-full md:w-1/2 `}>      
  <Userbox/>
