@@ -26,8 +26,6 @@ const Userbox = () => {
     { name: 'ravi' },
     { name: 'ravi' },
     { name: 'ravi' },
-    { name: 'ravi' },
-    { name: 'ravi' },
   ];
 
   const [data, setData] = useState(initialData);
@@ -44,8 +42,8 @@ const Userbox = () => {
   );
 
   return (
-    <div className="w-full h-full">
-      <div className="w-full text-center p-5">
+    <div className="w-full h-full "><br /><br /><br /> 
+      <div className="w-full text-center">
         <input
           type="text"
           id="last_name"

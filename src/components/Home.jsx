@@ -9,10 +9,12 @@ const Home = () => {
   return (<>
 
   <div>
-    <Navbar/>
-    <Sidebar/>
+    {/* <Navbar/> */}
+    {/* <Sidebar/> */}
   <div className={`w-full h-[100vh] flex  `}>
-      <div className={` justify-center w-full md:w-1/2 `}>      
+  <Navbar/>
+      <Sidebar/>    
+      <div className={` justify-center w-full md:w-1/2 `}>  
  <Userbox/>
 </div>
 
