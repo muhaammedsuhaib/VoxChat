@@ -6,6 +6,8 @@ const Chatbox = () => {
   return (
     <>
     
+    
+    
  {/* <div className="w-full h-full flex items-center justify-center ">
       <img src="/blackbr.png" alt="logo"  width={400}/>
     </div> */}
@@ -34,7 +36,7 @@ const Chatbox = () => {
 
 
 
-<div className="w-full bg-slate-600 p-0 flex flex-col">
+<div className="w-full bg-slate-600 p-0 flex flex-col"><br />
 
   <div className="w-full flex-1">
 
