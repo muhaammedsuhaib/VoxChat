@@ -5,14 +5,13 @@ import Userbox from './Userbox'
 import Chatbox from './Chatbox'
 
 const Home = () => {
-    const [darkMode, setDarkMode]=useState(true);
-  const [responsive,setResponsive]=useState(false)
-  const [chageC,setChangeC]=useState(true)
+  
   return (<>
 
   <div>
     <Navbar/>
-  <div className={`w-full h-[100vh] flex flex-wrap `}>
+    <Sidebar/>
+  <div className={`w-full h-[100vh] flex  `}>
       <div className={` justify-center w-full md:w-1/2 `}>      
  <Userbox/>
 </div>
