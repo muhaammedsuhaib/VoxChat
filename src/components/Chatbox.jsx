@@ -36,13 +36,13 @@ const Chatbox = () => {
 
 
 
-<div className="w-full bg-slate-600 p-0 flex flex-col"><br />
+<div className="w-full flex flex-col"><br /><br />
 
   <div className="w-full flex-1">
 
     {/* Profile section  */}
 
-  <div className="w-full bg-[#F5F5F5] border-l-2 border-gray-200  p-2">
+  <div className="w-full bg-[#F5F5F5] border-l-2 border-gray-200  p-0">
           <div className="w-full p-2 flex items-center justify-between rounded-lg">
             <div className="flex items-center">
               <img
@@ -69,16 +69,8 @@ const Chatbox = () => {
   
   {/* chat section */}
 <div className="w-full  h-[75vh] overflow-auto">
- <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum quos veritatis perspiciatis. Assumenda voluptas quibusdam iure est molestias architecto! Incidunt molestias vero assumenda dolorem nostrum tempora dicta odit reprehenderit? Consectetur?</h1>
- <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum quos veritatis perspiciatis. Assumenda voluptas quibusdam iure est molestias architecto! Incidunt molestias vero assumenda dolorem nostrum tempora dicta odit reprehenderit? Consectetur?</h1>
- <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum quos veritatis perspiciatis. Assumenda voluptas quibusdam iure est molestias architecto! Incidunt molestias vero assumenda dolorem nostrum tempora dicta odit reprehenderit? Consectetur?</h1>
- <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum quos veritatis perspiciatis. Assumenda voluptas quibusdam iure est molestias architecto! Incidunt molestias vero assumenda dolorem nostrum tempora dicta odit reprehenderit? Consectetur?</h1>
- <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum quos veritatis perspiciatis. Assumenda voluptas quibusdam iure est molestias architecto! Incidunt molestias vero assumenda dolorem nostrum tempora dicta odit reprehenderit? Consectetur?</h1>
- <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum quos veritatis perspiciatis. Assumenda voluptas quibusdam iure est molestias architecto! Incidunt molestias vero assumenda dolorem nostrum tempora dicta odit reprehenderit? Consectetur?</h1>
- <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum quos veritatis perspiciatis. Assumenda voluptas quibusdam iure est molestias architecto! Incidunt molestias vero assumenda dolorem nostrum tempora dicta odit reprehenderit? Consectetur?</h1>
- <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum quos veritatis perspiciatis. Assumenda voluptas quibusdam iure est molestias architecto! Incidunt molestias vero assumenda dolorem nostrum tempora dicta odit reprehenderit? Consectetur?</h1>
- <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum quos veritatis perspiciatis. Assumenda voluptas quibusdam iure est molestias architecto! Incidunt molestias vero assumenda dolorem nostrum tempora dicta odit reprehenderit? Consectetur?</h1>
-</div>
+ <h1>Im suhiab</h1>
+ </div>
 
 {/* buttom section  */}
         <div className="w-full  fixed bottom-0">
