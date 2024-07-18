@@ -42,7 +42,7 @@ const Userbox = () => {
   );
 
   return (
-    <div className="w-full h-full "><br /><br /><br /> 
+    <div className="w-full h-full"><br /><br /><br /> 
       <div className="w-full text-center">
         <input
           type="text"
