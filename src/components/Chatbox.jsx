@@ -5,6 +5,7 @@ const Chatbox = () => {
   const [chageC,setChangeC]=useState(true)
   return (
     <>
+    
  {/* <div className="w-full h-full flex items-center justify-center ">
       <img src="/blackbr.png" alt="logo"  width={400}/>
     </div> */}

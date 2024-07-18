@@ -11,16 +11,13 @@ const Home = () => {
   return (<>
 
   <div>
+    {/* <Navbar/> */}
   <div className={`w-full h-[100vh] flex flex-wrap `}>
-      <div className={`hidden md:flex justify-center w-full md:w-1/2 `}>
-      
+      <div className={` justify-center w-full md:w-1/2 `}>      
  <Userbox/>
 </div>
 
-        <div className={`w-full md:w-1/2 `}>
-
-
-
+        <div className={`hidden md:flex w-full md:w-1/2 `}>
           <div className="w-full h-screen flex items-center justify-center text-start">
            <Chatbox/>
           </div>
