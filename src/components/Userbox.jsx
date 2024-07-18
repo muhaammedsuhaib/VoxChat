@@ -42,8 +42,8 @@ const Userbox = () => {
   );
 
   return (
-    <div className="w-full h-full"><br /><br /><br /> 
-      <div className="w-full text-center">
+    <div className="w-full h-full"><br /><br /><br />
+      <div className="w-full text-center p-3">
         <input
           type="text"
           id="last_name"
