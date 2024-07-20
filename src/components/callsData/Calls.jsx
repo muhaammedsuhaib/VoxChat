@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Userbox = () => {
+const Calls = () => {
   const initialData = [
     { name: 'Anas',chat:['hy','heloo','how are you' , 'fine ' ,'what about you', 'iam good' , 'thanks for asking' ,'didi you dring tea' , 'yes of coursw'] },
     { name: 'ravi',chat:['hy','heloo','how are you' , 'fine ' ,'what about you', 'iam good' , 'thanks for asking' ,'didi you dring tea' , 'yes of coursw'] },
@@ -41,6 +41,7 @@ const Userbox = () => {
 
   return (
     <div className="w-full h-full"><br /><br /><br />
+    <h1>Iam calls</h1>
       <div className="w-full text-center p-3">
         <input
           type="text"
@@ -73,4 +74,4 @@ const Userbox = () => {
   );
 };
 
-export default Userbox;
+export default Calls;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Chatbox = () => {
+const Callinfo = () => {
  
   return (
     <>
@@ -33,7 +33,7 @@ const Chatbox = () => {
 
 
 
-
+<h1>Iam call info</h1>
 
 <div className="w-full flex flex-col"><br /><br />
 
@@ -156,4 +156,4 @@ const Chatbox = () => {
   );
 };
 
-export default Chatbox;
+export default Callinfo;

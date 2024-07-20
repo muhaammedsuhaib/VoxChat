@@ -1,14 +1,27 @@
-import React from 'react'
-import Navbar from './Navbar'
+import React, { createContext, useState } from 'react';
 import Home from './Home'
 
 
-// import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CallHome from './callsData/CallHome';
+
+export const globalContext = createContext();
 
 const Main = () => {
+
+  const [user,setUser]=useState([]);
+  const [chat,setchat]=useState([]);
+
   return (
     <div>
-  <Home/>
+      <BrowserRouter>
+      <globalContext.Provider value={{user,setUser,chat,setchat}}>
+      <Routes>
+        <Route path='/' element={<Home/>}/> 
+        <Route path='/calls' element={<CallHome/>}/> 
+      </Routes>
+      </globalContext.Provider>
+      </BrowserRouter>
     </div>
   )
 }
