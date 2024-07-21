@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+import Navbar from '../Navbar'
+import Sidebar from '../Sidebar'
 import Userbox from './Userbox'
 import Chatbox from './Chatbox'
 
 const Home = () => {
+
+
+  const [chats,setChats]=useState(null);
+  const [chatopen,setChatopen]=useState(false);
   
   return (<>
 
@@ -15,12 +19,14 @@ const Home = () => {
   <Navbar/>
       <Sidebar/>    
       <div className={` justify-center w-full md:w-1/2 `}>  
- <Userbox/>
+      
+ {/* <Userbox  setChats={setChats}/> */}
+ {chatopen?<Chatbox chats={chats} setChats={setChats}/> : <Userbox setChats={setChats} setChatopen={setChatopen}/>}
 </div>
 
         <div className={`hidden md:flex w-full md:w-1/2 `}>
           <div className="w-full h-screen flex items-center justify-center text-start">
-           <Chatbox/>
+           <Chatbox chats={chats} setChats={setChats} />
           </div>
         </div>
       </div>

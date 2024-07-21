@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import Home from './Home'
+import Home from './Chats/Home'
 
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -15,7 +15,7 @@ const Main = () => {
   return (
     <div>
       <BrowserRouter>
-      <globalContext.Provider value={{user,setUser,chat,setchat}}>
+      <globalContext.Provider>
       <Routes>
         <Route path='/' element={<Home/>}/> 
         <Route path='/calls' element={<CallHome/>}/> 

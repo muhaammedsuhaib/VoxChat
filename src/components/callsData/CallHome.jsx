@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Navbar from '../Navbar'
 import Sidebar from '../Sidebar'
-import Userbox from '../Userbox'
-import Chatbox from '../Chatbox'
+import Userbox from '../Chats/Userbox'
+import Chatbox from '../Chats/Chatbox'
 import Callinfo from './Callinfo'
 import Calls from './Calls'
 
