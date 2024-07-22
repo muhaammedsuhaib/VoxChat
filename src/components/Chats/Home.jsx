@@ -22,7 +22,7 @@ const Home = () => {
       <div className="hidden md:block">
  <Userbox  setChats={setChats} setChatopen={setChatopen} /></div>
  <div className="md:hidden">
- {chatopen?<Chatbox chats={chats} setChats={setChats}/> : <Userbox setChats={setChats} setChatopen={setChatopen}/>}</div>
+ {chatopen? <div className="pl-16 pt-2"> <Chatbox chats={chats} setChats={setChats}/> </div>: <Userbox setChats={setChats} setChatopen={setChatopen}/>}</div>
 </div>
 
         <div className={`hidden md:flex w-full md:w-1/2 `}>
