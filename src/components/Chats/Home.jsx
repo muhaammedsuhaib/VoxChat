@@ -19,9 +19,10 @@ const Home = () => {
   <Navbar/>
       <Sidebar/>    
       <div className={` justify-center w-full md:w-1/2 `}>  
-      
- {/* <Userbox  setChats={setChats}/> */}
- {chatopen?<Chatbox chats={chats} setChats={setChats}/> : <Userbox setChats={setChats} setChatopen={setChatopen}/>}
+      <div className="hidden md:block">
+ <Userbox  setChats={setChats} setChatopen={setChatopen} /></div>
+ <div className="md:hidden">
+ {chatopen?<Chatbox chats={chats} setChats={setChats}/> : <Userbox setChats={setChats} setChatopen={setChatopen}/>}</div>
 </div>
 
         <div className={`hidden md:flex w-full md:w-1/2 `}>
