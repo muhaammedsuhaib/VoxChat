@@ -76,14 +76,14 @@ const Chatbox = ({chats,setChats}) => {
         </div>
       </div>
 
-{/* chat section */}
-<div className="w-full  h-[75vh] overflow-auto">
-  {chats?.chat?.map((echChat)=>(
-    <>
-    <h1 className="border-spacing-3 m-9">{echChat}</h1>
-    </>
-  ))  }
-</div>
+  {/* chat section */}
+  <div className="w-full h-[75vh] overflow-auto">
+              {chats?.chat?.map((echChat, index) => (
+                <h1 key={index} className="border-spacing-3 m-9">
+                  {echChat}
+                </h1>
+              ))}
+            </div>
 
 {/* buttom section  */}
       <div className="w-full  sticky bottom-0">

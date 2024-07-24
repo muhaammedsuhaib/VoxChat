@@ -15,12 +15,12 @@ const Main = () => {
   return (
     <div>
       <BrowserRouter>
-      <globalContext.Provider>
+      {/* <globalContext.Provider> */}
       <Routes>
         <Route path='/' element={<Home/>}/> 
         <Route path='/calls' element={<CallHome/>}/> 
       </Routes>
-      </globalContext.Provider>
+      {/* </globalContext.Provider> */}
       </BrowserRouter>
     </div>
   )
