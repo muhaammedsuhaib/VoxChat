@@ -22,7 +22,7 @@ const CallHome = () => {
 </div>
 
         <div className={`hidden md:flex w-full md:w-1/2 `}>
-          <div className="w-full h-screen flex items-center justify-center text-start">
+          <div className="w-full h-screen ">
            <Callinfo/>
           </div>
         </div>
