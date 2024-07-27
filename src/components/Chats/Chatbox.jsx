@@ -9,13 +9,13 @@ const Chatbox = ({chats,setChats}) => {
   return (
     <>
     
-    {chats?<div className="w-full flex flex-col"><br /><br />
+    {chats?<div className="w-full flex flex-col md:mt-12">
 
 <div className="w-full flex-1">
 
   {/* Profile section  */}
 
-<div className="w-full bg-[#F5F5F5] border-l-2 border-gray-200  p-0">
+<div className="w-full bg-[#F5F5F5] border-l-2 border-gray-200  p-0 ">
         <div className="w-full p-3 flex items-center justify-between rounded-lg">
           <div className="flex items-center">
             <img
@@ -77,16 +77,17 @@ const Chatbox = ({chats,setChats}) => {
       </div>
 
   {/* chat section */}
-  <div className="w-full h-[75vh] overflow-auto">
+  <div className="w-full h-[76vh] sm:h-[66vh] bg-red-800 overflow-auto">
               {chats?.chat?.map((echChat, index) => (
                 <h1 key={index} className="border-spacing-3 m-9">
                   {echChat}
                 </h1>
               ))}
+              {/* h1{Hello}*1000 */}
             </div>
 
 {/* buttom section  */}
-      <div className="w-full  sticky bottom-0">
+      <div className="w-full">
 <div className="flex items-center gap-3 w-full bg-[#F5F5F5] border-l-2 border-gray-200 p-0">
 
   <div>

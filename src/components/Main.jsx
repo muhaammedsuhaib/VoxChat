@@ -3,7 +3,7 @@ import Home from './Chats/Home'
 
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import CallHome from './callsData/CallHome';
+import CallHome from './calls/CallHome';
 
 export const globalContext = createContext();
 

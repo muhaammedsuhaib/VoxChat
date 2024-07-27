@@ -13,16 +13,14 @@ const Home = () => {
   return (<>
 
   <div>
-    {/* <Navbar/> */}
-    {/* <Sidebar/> */}
-  <div className={`w-full h-[100vh] flex  `}>
-  <Navbar/>
-      <Sidebar/>    
+    
+    {/* {chatopen? <div className="pl-16 pt-2"> <Chatbox chats={chats} setChats={setChats}/> </div>: <Userbox setChats={setChats} setChatopen={setChatopen}/>} */}
+  <div className={`w-full h-[100vh] flex  `}>  
       <div className={` justify-center w-full md:w-1/2 `}>  
       <div className="hidden md:block">
  <Userbox  setChats={setChats} setChatopen={setChatopen} /></div>
  <div className="md:hidden">
- {chatopen? <div className="pl-16 pt-2"> <Chatbox chats={chats} setChats={setChats}/> </div>: <Userbox setChats={setChats} setChatopen={setChatopen}/>}</div>
+ {chatopen? <div className="p-0"> <Chatbox chats={chats} setChats={setChats}/> </div>: <Userbox setChats={setChats} setChatopen={setChatopen}/>}</div>
 </div>
 
         <div className={`hidden md:flex w-full md:w-1/2 `}>

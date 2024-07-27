@@ -1,0 +1,14 @@
+/* styles.css */
+.textarea-center-placeholder::placeholder {
+    text-align: start ;
+  }
+  
+  .textarea-center-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px; /* Adjust based on your design */
+    padding-bottom: 15px; /* Adjust based on your design */
+    resize: none; /* Prevent resizing */
+  }
+  

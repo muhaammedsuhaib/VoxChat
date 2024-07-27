@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { initialData } from '../datas/Sample';
-
+import axios from 'axios';
+import Navbar from '../Navbar';
+import Sidebar from '../Sidebar';
 const Userbox = ({setChats,setChatopen}) => {
  
 
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
 
@@ -14,12 +16,26 @@ const Userbox = ({setChats,setChatopen}) => {
   };
 
   // Filtering data based on search term
-  const filteredData = data.filter((item) =>
+  const filteredData = data?.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  return (
-    <div className="w-full h-full"><br /><br /><br />
+  useEffect(()=>{
+    const fetchUser = async ()=>{
+      try {
+        const response= await  axios.get('http://localhost:4300/users');        
+        setData(response.data.users)
+        console.log(response.data.users)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchUser();
+  },[])
+  return (<>
+  <Navbar/>
+  <Sidebar/>
+    <div className="w-full h-full md:pl-16"><br /><br /><br />
       <div className="w-full text-center p-3">
         <input
           type="text"
@@ -49,6 +65,7 @@ const Userbox = ({setChats,setChatopen}) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
