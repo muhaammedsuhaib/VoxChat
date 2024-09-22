@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { initialData } from '../datas/Sample';
+// import { initialData } from '../datas/Sample';
 import axios from 'axios';
 import Navbar from '../Navbar';
 import Sidebar from '../Sidebar';

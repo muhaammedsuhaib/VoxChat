@@ -87,8 +87,8 @@ const Chatbox = ({chats,setChats}) => {
             </div>
 
 {/* buttom section  */}
-      <div className="w-full">
-<div className="flex items-center gap-3 w-full bg-[#F5F5F5] border-l-2 border-gray-200 p-0">
+      <div className="w-full absolute ">
+<div className="flex items-center gap-3 w-full bg-[#F5F5F5] border-l-2 border-gray-200 p-0 fixed bottom-0">
 
   <div>
     <svg
@@ -162,7 +162,10 @@ const Chatbox = ({chats,setChats}) => {
 
   </div> */}
 </div>
+
 </div>
+
+
       
 </div>
 </div>:<div className="w-full h-full flex items-center justify-center ">

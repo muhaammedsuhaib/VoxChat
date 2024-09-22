@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { initialData } from '../datas/Sample';
+// import { initialData } from '../datas/Sample';
 
 const Calls = () => {
 
 
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   // Function to handle input change
