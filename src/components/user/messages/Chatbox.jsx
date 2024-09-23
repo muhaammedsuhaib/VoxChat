@@ -1,139 +1,208 @@
-import { Menu, MenuButton, MenuItem, MenuItems, Textarea } from "@headlessui/react";
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  Textarea,
+} from "@headlessui/react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { BsTelephoneOutboundFill } from "react-icons/bs";
+import { FaCamera, FaMicrophone, FaPaperclip, FaSearch } from "react-icons/fa";
+import { MdMoreVert } from "react-icons/md";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { HiPaperAirplane } from 'react-icons/hi2';
+
 
 export default function Chatbox() {
-
   const [showModal, setShowModal] = React.useState(true);
 
-  const {id}=useParams();
+  const { id } = useParams();
 
-  const {data,isSuccess, isLoading, isError}=useQuery({
-    queryKey:["user"],
-    queryFn:async ()=>{
+  const navigation = useNavigate();
+
+  const { data, isSuccess, isLoading, isError } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
       const response = await axios.get(`http://localhost:4300/user/${id}`);
       return response.data;
-    }
-  })
-  
-  console.log(data)
+    },
+  });
+
+  const handleCameraClick = () => {
+    document.getElementById('cameraInput').click();
+  };
+  console.log(isLoading, isSuccess);
   return (
     <>
       {showModal ? (
         <>
+          <div className="relative z-50">
+            {isLoading && (
+              <p className="text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                Loading...
+              </p>
+            )}
+            {isError && (
+              <p className="text-center text-red-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                Error loading data. Please try again.
+              </p>
+            )}
+          </div>
           <div className="fixed inset-0 z-50 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50">
-                  {isLoading && <p className="text-center">Loading...</p>}
-                  {isError && <p className="text-center text-red-600">Error loading data. Please try again.</p>}
-            {/* Full-screen Modal Content */}
             <div className="relative w-screen h-screen">
-              <div className="w-full h-full bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+              <div className="w-full h-full bg-white shadow-lg overflow-hidden flex flex-col">
+
+
+
                 {/* Header */}
-                <div className="flex items-center justify-between  border-b border-gray-200">
-                <div className="w-full bg-[#F5F5F5] border-l-2 border-gray-200  p-0 ">
+                <div className="flex items-center justify-between border-b border-gray-200 p-4 bg-gray-100">
 
-        <div className="w-full p-3 flex items-center justify-between rounded-lg">
-          <div className="flex items-center">
-            <img
-              src="https://i.ytimg.com/vi/ATElufr0OiE/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCJuaATtZxg3dXNAyUiTBM-dVbiOA"
-              alt="profile Image"
-              className="rounded-full h-12 w-12 p-1"
-            />
-            <p className="ml-3 font-bold"> {data?.name}<br /><span className="text-sm"></span></p>
-           
-          </div>
-          <div className="flex items-center gap-5">
-          <div> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 hover:scale-110 text-gray-500">
-<path strokeLinecap="round" strokeLinejoin="round" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z" />
-</svg></div>
-          <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 hover:scale-110 text-gray-500">
-<path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-</svg></div>
-        
+                  <div className="flex items-center w-full">
+                    <IoMdArrowRoundBack className="cursor-pointer text-gray-600 hover:text-gray-800 transition-colors duration-200" size={20}  onClick={()=>navigation('/u/chat')}/>
 
+                    <div className="flex items-center mx-1">
+                      <img
+                        src="https://pbs.twimg.com/media/E7QRfFMXMAMBepC?format=jpg&name=4096x4096"
+                        alt="profile"
+                        className="rounded-full h-12 w-12 object-cover"
+                      />
+                      <div className="ml-3">
+                        <p className="font-bold text-gray-800">{data?.name}</p>
+                        <span className="text-sm text-gray-600">
+                          last seen at 2:57
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4 ml-auto">
+                      <BsTelephoneOutboundFill className=" cursor-pointer text-gray-600 hover:text-gray-800 transition-colors duration-200" size={20} />
+                      <FaSearch className=" cursor-pointer text-gray-600 hover:text-gray-800 transition-colors duration-200" size={20} />
 
+                      <Menu as="div" className="relative">
+                        <Menu.Button className="flex rounded-full text-sm focus:outline-none border-none">
+                          <MdMoreVert className="text-gray-600 hover:text-gray-800 transition-colors duration-200" size={20} />
+                        </Menu.Button>
 
+                        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="#"
+                                className={`block px-4 py-2 text-sm text-gray-700 ${
+                                  active ? "bg-gray-100" : ""
+                                }`}
+                              >
+                                Your Profile
+                              </a>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="#"
+                                className={`block px-4 py-2 text-sm text-gray-700 ${
+                                  active ? "bg-gray-100" : ""
+                                }`}
+                              >
+                                Settings
+                              </a>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="#"
+                                className={`block px-4 py-2 text-sm text-gray-700 ${
+                                  active ? "bg-gray-100" : ""
+                                }`}
+                              >
+                                Sign out
+                              </a>
+                            )}
+                          </Menu.Item>
+                        </Menu.Items>
+                      </Menu>
+                    </div>
+                  </div>
+                </div>
 
-
-
-
-<Menu as="div" className="relative ml-3">
-              <div>
-                <MenuButton className="relative flex rounded-full  text-sm focus:outline-none  border-none ">
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">Open user menu</span>
-                  <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 hover:scale-150 text-gray-500">
-<path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
-</svg></div>    
-                </MenuButton>
-              </div>
-              <MenuItems
-                transition
-                className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-              >
-                <MenuItem>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
-                    Your Profile
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
-                    Settings
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
-                    Sign out
-                  </a>
-                </MenuItem>
-              </MenuItems>
-            </Menu>
-          </div>
+                {/*  (chat Content) */}
+                <div className="flex-1 p-6 overflow-auto">
+      {/* Outgoing Message */}
+      <div className="flex justify-end mb-4">
+        <div className="flex flex-col items-end">
+          <p className="bg-blue-500 text-white text-lg leading-relaxed w-auto inline-block p-3 rounded-lg shadow-md">
+            Hello
+          </p>
+          <span className="text-xs text-gray-300 mt-1">2:00 PM</span>
         </div>
       </div>
-                </div>
-                
-                {/* Body (Scrollable Content) */}
-                <div className="flex-1 p-6 overflow-auto">
-                  <p className="text-gray-700 text-lg leading-relaxed w-auto inline-block p-2 rounded-lg bg-gray-400">Hello    </p>
-                  <p className="text-gray-700  text-lg leading-relaxed w-auto inline-block p-2 rounded-lg bg-green-400">Hey   </p>
-                </div>
 
-                {/* Footer */}
-                <div className="p-4 border-t border-gray-200 w-full bg-[#F5F5F5]  flex ">
-  <div className="">
-     <Textarea
-      className="w-full bg-transparent focus:outline-none resize-none border-2 rounded-lg"
-      placeholder="Type a message"
-    />
-  </div>
-  <div className="">
-     <Textarea
-      className="w-full bg-transparent focus:outline-none resize-none border-2 rounded-lg"
-      placeholder="Type a message"
-    />
-  </div>
+      {/* Incoming Message */}
+      <div className="flex justify-start mb-4">
+        <div className="flex flex-col items-start">
+          <p className="bg-gray-200 text-gray-700 text-lg leading-relaxed w-auto inline-block p-3 rounded-lg shadow-md">
+            Hey
+          </p>
+          <span className="text-xs text-gray-500 mt-1">2:01 PM</span>
+        </div>
+      </div>
 
+      {/* Additional Messages */}
+      <div className="flex justify-end mb-4">
+        <div className="flex flex-col items-end">
+          <p className="bg-blue-500 text-white text-lg leading-relaxed w-auto inline-block p-3 rounded-lg shadow-md">
+            How are you?
+          </p>
+          <span className="text-xs text-gray-300 mt-1">2:02 PM</span>
+        </div>
+      </div>
+      <div className="flex justify-start mb-4">
+        <div className="flex flex-col items-start">
+          <p className="bg-gray-200 text-gray-700 text-lg leading-relaxed w-auto inline-block p-3 rounded-lg shadow-md">
+            I’m good, thanks!
+          </p>
+          <span className="text-xs text-gray-500 mt-1">2:03 PM</span>
+        </div>
+      </div>
+    </div>
 
+                {/* message sender */}
+                <div className="p-4 border-t border-gray-200 w-full bg-[#F5F5F5] flex items-center rounded-lg shadow-md">
+      <input
+        id="cameraInput"
+        type="file"
+        accept="image/*"
+        capture="camera"
+        style={{ display: 'none' }} // Hide the file input
+      />
+      
+      <button
+        className="text-black p-2 rounded-full flex items-center justify-center hover:text-green-500  hover:bg-green-100 transition duration-200"
+        onClick={handleCameraClick}
+      >
+        <FaPaperclip size={20} />
+      </button>
 
-                  {/* <Link to={'/u/chat'} >
-                  <button
-                    className="text-red-500 font-bold uppercase px-6 py-2 text-sm mr-2"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  </Link> */}
-                  {/* <button
-                    className="bg-green-500 text-white font-bold uppercase px-6 py-2 text-sm rounded hover:bg-green-600"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Save Changes
-                  </button> */}
-                </div>
+      <div className="flex-grow mx-2">
+        <Textarea
+          className="w-full bg-white focus:outline-none resize-none border-2 border-gray-300 rounded-lg p-3 transition duration-300 ease-in-out hover:shadow-md"
+          placeholder="Type a message"         
+        />
+      </div>
+
+      <div className="flex items-center space-x-2">
+        <button className="text-black p-2 rounded-full flex items-center justify-center hover:text-green-500  hover:bg-green-100 transition duration-200">
+          <FaMicrophone size={20} />
+        </button>
+        <button className=" text-black p-2 rounded-full flex items-center justify-center hover:text-green-500  hover:bg-green-100 transition duration-200">
+          <HiPaperAirplane size={20} />
+        </button>
+      </div>
+    </div>
+
               </div>
             </div>
           </div>

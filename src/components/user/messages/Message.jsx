@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
-import Chatbox from './Chatbox';
-import { Link, useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import { format } from 'date-fns';
-import { FaSearch } from 'react-icons/fa';
-import { MdOutlineSearchOff } from 'react-icons/md';
+import React, { useState } from "react";
+import Chatbox from "./Chatbox";
+import { Link, useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { format } from "date-fns";
+import { FaSearch } from "react-icons/fa";
+import { MdOutlineSearchOff } from "react-icons/md";
 
 const Message = () => {
-  const [open, setOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  // const [selectedChat, setChats] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
 
-  const {id}=useParams();
+  const { id } = useParams();
 
   const { data, isSuccess, isLoading, isError } = useQuery({
-    queryKey: ['users'],
+    queryKey: ["users"],
     queryFn: async () => {
-      const response = await axios('http://localhost:4300/users');
+      const response = await axios("http://localhost:4300/users");
       return response.data;
     },
     refetchInterval: 60000,
@@ -40,7 +38,12 @@ const Message = () => {
         <div className="w-full text-center p-3 fixed top-3 z-10">
           {!searchOpen ? (
             <div className="text-end p-2 rounded-full">
-            <FaSearch className="cursor-pointe  text-black " onClick={() => setSearchOpen(true)} size={25} /></div>
+              <FaSearch
+                className="cursor-pointe  text-black "
+                onClick={() => setSearchOpen(true)}
+                size={25}
+              />
+            </div>
           ) : (
             <div className="flex items-center">
               <input
@@ -52,8 +55,11 @@ const Message = () => {
                 placeholder="Search..."
                 aria-label="Search users"
               />
-              <button className="ml-2 text-red-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 rounded-lg  transition-all duration-300" onClick={() => setSearchOpen(false)}>
-                <MdOutlineSearchOff size={35}  />
+              <button
+                className="ml-2 text-red-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 rounded-lg  transition-all duration-300"
+                onClick={() => setSearchOpen(false)}
+              >
+                <MdOutlineSearchOff size={35} />
               </button>
             </div>
           )}
@@ -61,22 +67,36 @@ const Message = () => {
 
         <div className="flex-grow mt-14 p-3 overflow-auto">
           {isLoading && <p className="text-center">Loading...</p>}
-          {isError && <p className="text-center text-red-600">Error loading data. Please try again.</p>}
-          {isSuccess && filteredData.length === 0 && <p className="text-center">No users found.</p>}
+          {isError && (
+            <p className="text-center text-red-600">
+              Error loading data. Please try again.
+            </p>
+          )}
+          {isSuccess && filteredData.length === 0 && (
+            <p className="text-center">No users found.</p>
+          )}
           {isSuccess &&
             filteredData.map((item, index) => (
-              <Link key={index} to={`/u/chat/${item._id}`} className='hover:text-green-950' >
-                <div className="w-full p-2 flex items-center justify-between hover:bg-gray-200 rounded-lg transition duration-200">
-                  <div className="flex items-center">
+              <Link
+                key={index}
+                to={`/u/chat/${item._id}`}
+                className="hover:text-green-950"
+              >
+                <div className="w-full p-1 flex flex-col sm:flex-row items-start sm:items-center justify-between hover:bg-gray-200 rounded-lg transition duration-200 border-b border-gray-300">
+                  <div className="flex items-center space-x-4 p-1">
                     <img
-                      src="https://i.ytimg.com/vi/ATElufr0OiE/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCJuaATtZxg3dXNAyUiTBM-dVbiOA"
+                      src="https://pbs.twimg.com/media/E7QRfFMXMAMBepC?format=jpg&name=4096x4096"
                       alt="profile"
-                      className="rounded-full h-12 w-12"
+                      className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover"
                     />
-                    <p className="ml-3 font-bold">{item.name}</p>
+                    <p className="ml-3 font-bold text-sm sm:text-base">
+                      {item.name}
+                    </p>
                   </div>
-                  <div className="flex items-center">
-                    <p className="text-gray-500">{format(new Date(), 'MM-dd-yyyy')}</p>
+                  <div className="flex items-center justify-end w-full sm:w-auto">
+                    <p className="text-gray-500 text-xs sm:text-sm ">
+                      {format(new Date(), "MM-dd-yyyy")}
+                    </p>
                   </div>
                 </div>
               </Link>
