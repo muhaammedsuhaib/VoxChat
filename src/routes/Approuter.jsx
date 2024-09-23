@@ -10,7 +10,7 @@ const Approuter = () => {
       {/* authentication  */}
       {/* <Route path='/' element={<Login/>}/> */}
 
-    <Route path='/u/:rout' element={<Sidebar/>}/>
+    <Route path='/u/:rout/:id?' element={<Sidebar/>}/>
 
     </Routes>
     </BrowserRouter>
