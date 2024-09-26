@@ -14,6 +14,7 @@ import { FaCamera, FaMicrophone, FaPaperclip, FaSearch } from "react-icons/fa";
 import { MdMoreVert } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { HiPaperAirplane } from 'react-icons/hi2';
+import axiosInstance from "../../../api/axiosInstance";
 
 
 export default function Chatbox() {
@@ -26,8 +27,9 @@ export default function Chatbox() {
   const { data, isSuccess, isLoading, isError } = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
-      const response = await axios.get(`http://localhost:4300/user/${id}`);
-      return response.data;
+      const response = await axiosInstance.get(`/users/${id}`);
+      console.log(response)
+      return response.data.data;
     },
   });
 

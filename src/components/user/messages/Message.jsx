@@ -6,6 +6,7 @@ import axios from "axios";
 import { format } from "date-fns";
 import { FaSearch } from "react-icons/fa";
 import { MdOutlineSearchOff } from "react-icons/md";
+import axiosInstance from "../../../api/axiosInstance";
 
 const Message = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,9 +17,10 @@ const Message = () => {
   const { data, isSuccess, isLoading, isError } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const response = await axios("http://localhost:4300/users");
-      return response.data;
-    },
+      const response = await axiosInstance.get("/users");
+      console.log(response.data.data)
+      return response.data.data;
+    },     
     refetchInterval: 60000,
   });
 
