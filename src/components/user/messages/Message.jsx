@@ -7,6 +7,7 @@ import { format } from "date-fns";
 import { FaSearch } from "react-icons/fa";
 import { MdOutlineSearchOff } from "react-icons/md";
 import axiosInstance from "../../../api/axiosInstance";
+import Loading from "../../common/Loading";
 
 const Message = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -29,10 +30,26 @@ const Message = () => {
   };
 
   const filteredData = isSuccess
-    ? data.filter((item) =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    ? data?.filter((item) =>
+        item?.username?.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : [];
+
+
+
+    if (isLoading) {
+      return (
+        <Loading/>
+      );
+    }
+  
+    if (isError) {
+      return (
+        <div className="flex items-center justify-center w-screen h-screen">
+          <p className="text-red-600">Error loading data. Please try again.</p>
+        </div>
+      );
+    }
 
   return (
     <div className="flex flex-col h-screen overflow-auto">
@@ -68,12 +85,6 @@ const Message = () => {
         </div>
 
         <div className="flex-grow mt-14 p-3 overflow-auto">
-          {isLoading && <p className="text-center">Loading...</p>}
-          {isError && (
-            <p className="text-center text-red-600">
-              Error loading data. Please try again.
-            </p>
-          )}
           {isSuccess && filteredData.length === 0 && (
             <p className="text-center">No users found.</p>
           )}
@@ -81,7 +92,7 @@ const Message = () => {
             filteredData.map((item, index) => (
               <Link
                 key={index}
-                to={`/u/chat/${item._id}`}
+                to={`/u/chat/${item?._id}`}
                 className="hover:text-green-950"
               >
                 <div className="w-full p-1 flex flex-col sm:flex-row items-start sm:items-center justify-between hover:bg-gray-200 rounded-lg transition duration-200 border-b border-gray-300">
@@ -92,12 +103,12 @@ const Message = () => {
                       className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover"
                     />
                     <p className="ml-3 font-bold text-sm sm:text-base">
-                      {item.name}
+                      {item?.username}
                     </p>
                   </div>
                   <div className="flex items-center justify-end w-full sm:w-auto">
                     <p className="text-gray-500 text-xs sm:text-sm ">
-                      {format(new Date(), "MM-dd-yyyy")}
+                      {format(new Date(item?.last_login), "MM-dd-yyyy")}
                     </p>
                   </div>
                 </div>
